@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portofolio Pribadi Raffi Ramadhan - Mahasiswa Sistem Informasi Universitas Nusantara PGRI Kediri dan Penggiat Komunitas Koding SIKOKI. Web Developer & UI/UX Enthusiast.">
+  <meta name="author" content="Raffi Ramadhan">
+  <title>Raffi Ramadhan | Web Developer & UI/UX Enthusiast</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            slate: {
+              950: '#020617',
+              900: '#0b1329',
+              850: '#0f172a',
+              800: '#1e293b',
+              700: '#334155',
+            },
+            emerald: {
+              300: '#6ee7b7',
+              400: '#34d399',
+              500: '#10b981',
+            },
+            cyan: {
+              300: '#67e8f9',
+              400: '#22d3ee',
+              500: '#06b6d4',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- External Script with defer -->
+  <script src="script.js" defer></script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-emerald-400 selection:text-slate-950 min-h-screen flex flex-col overflow-x-hidden relative">
+
+  <!-- ==================== HEADER & NAVBAR ==================== -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand / Logo (Editorial MNTN Style) -->
+        <a href="#hero" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded-md py-1 px-1.5 transition-transform">
+          <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-400/20 to-cyan-400/20 border border-emerald-400/30 flex items-center justify-center text-emerald-400 font-heading font-extrabold text-sm tracking-wider group-hover:scale-105 group-hover:border-emerald-400 transition-all">
+            RR
+          </span>
+          <span class="font-heading font-extrabold text-lg sm:text-xl tracking-wider uppercase text-white group-hover:text-emerald-400 transition-colors">
+            Raffi Ramadhan
+          </span>
+        </a>
+
+        <!-- Center Navigation Links (Desktop) -->
+        <nav class="hidden md:flex items-center gap-1 lg:gap-3" aria-label="Navigasi Utama">
+          <a href="#tentang" class="nav-link px-4 py-2 text-sm font-medium text-slate-300 hover:text-emerald-400 rounded-lg hover:bg-slate-900/60 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400">
+            Tentang
+          </a>
+          <a href="#keahlian" class="nav-link px-4 py-2 text-sm font-medium text-slate-300 hover:text-emerald-400 rounded-lg hover:bg-slate-900/60 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400">
+            Keahlian
+          </a>
+          <a href="#proyek" class="nav-link px-4 py-2 text-sm font-medium text-slate-300 hover:text-emerald-400 rounded-lg hover:bg-slate-900/60 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400">
+            Proyek
+          </a>
+          <a href="#kontak" class="nav-link px-4 py-2 text-sm font-medium text-slate-300 hover:text-emerald-400 rounded-lg hover:bg-slate-900/60 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400">
+            Kontak
+          </a>
+        </nav>
+
+        <!-- Right Side Affiliation Badge -->
+        <div class="hidden lg:flex items-center gap-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-xs font-medium text-slate-300">
+            <i data-lucide="code" class="w-3.5 h-3.5 text-cyan-400"></i>
+            <span>SIKOKI Community</span>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Button (Hamburger) -->
+        <div class="md:hidden flex items-center">
+          <button 
+            type="button" 
+            id="mobile-menu-btn" 
+            class="p-2.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900 border border-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 transition-colors"
+            aria-label="Buka menu navigasi" 
+            aria-expanded="false" 
+            aria-controls="mobile-menu">
+            <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-slate-950/98 backdrop-blur-xl px-5 pt-3 pb-5 space-y-2 transition-all duration-200">
+      <a href="#tentang" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-200 hover:text-emerald-400 hover:bg-slate-900 transition-colors">
+        01. Tentang Saya
+      </a>
+      <a href="#keahlian" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-200 hover:text-emerald-400 hover:bg-slate-900 transition-colors">
+        02. Keahlian &amp; Tech Stack
+      </a>
+      <a href="#proyek" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-200 hover:text-emerald-400 hover:bg-slate-900 transition-colors">
+        03. Proyek
+      </a>
+      <a href="#kontak" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-200 hover:text-emerald-400 hover:bg-slate-900 transition-colors">
+        04. Kontak
+      </a>
+    </div>
+  </header>
+
+  <!-- ==================== VERTICAL SIDEBAR RAILS (EDITORIAL TOUCH) ==================== -->
+  <!-- Left Side: Follow / Social Vertical Rail -->
+  <aside class="hidden xl:flex fixed left-8 top-1/2 -translate-y-1/2 flex-col items-center gap-6 z-40 text-slate-400">
+    <span class="text-xs uppercase tracking-widest font-heading font-semibold -rotate-90 origin-center text-slate-400">
+      Komunitas
+    </span>
+    <div class="w-px h-12 bg-slate-800"></div>
+    <div class="flex flex-col gap-4 text-slate-400">
+      <span class="hover:text-emerald-400 transition-colors cursor-default" title="SIKOKI UNP Kediri">
+        <i data-lucide="terminal" class="w-4 h-4"></i>
+      </span>
+      <span class="hover:text-cyan-400 transition-colors cursor-default" title="Web Developer">
+        <i data-lucide="globe" class="w-4 h-4"></i>
+      </span>
+      <span class="hover:text-emerald-400 transition-colors cursor-default" title="UI/UX Enthusiast">
+        <i data-lucide="figma" class="w-4 h-4"></i>
+      </span>
+    </div>
+  </aside>
+
+  <!-- Right Side: Section Progress Tracker Rail -->
+  <aside class="hidden xl:flex fixed right-8 top-1/2 -translate-y-1/2 flex-col items-end gap-5 z-40 text-xs font-heading font-semibold text-slate-400">
+    <a href="#hero" class="scroll-tracker-item flex items-center gap-3 hover:text-emerald-400 transition-colors" data-target="hero">
+      <span>Start</span>
+      <span class="w-5 h-0.5 bg-slate-700 transition-all"></span>
+    </a>
+    <a href="#tentang" class="scroll-tracker-item flex items-center gap-3 hover:text-emerald-400 transition-colors" data-target="tentang">
+      <span>01</span>
+      <span class="w-5 h-0.5 bg-slate-700 transition-all"></span>
+    </a>
+    <a href="#keahlian" class="scroll-tracker-item flex items-center gap-3 hover:text-emerald-400 transition-colors" data-target="keahlian">
+      <span>02</span>
+      <span class="w-5 h-0.5 bg-slate-700 transition-all"></span>
+    </a>
+    <a href="#proyek" class="scroll-tracker-item flex items-center gap-3 hover:text-emerald-400 transition-colors" data-target="proyek">
+      <span>03</span>
+      <span class="w-5 h-0.5 bg-slate-700 transition-all"></span>
+    </a>
+    <a href="#kontak" class="scroll-tracker-item flex items-center gap-3 hover:text-emerald-400 transition-colors" data-target="kontak">
+      <span>04</span>
+      <span class="w-5 h-0.5 bg-slate-700 transition-all"></span>
+    </a>
+  </aside>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="flex-grow">
+
+    <!-- ==================== HERO SECTION (EDITORIAL MNTN VIBE) ==================== -->
+    <section id="hero" class="relative min-h-[85vh] sm:min-h-[90vh] flex items-center py-20 lg:py-28 overflow-hidden">
+      
+      <!-- Ambient Gradient Background Layers -->
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-950/80 to-slate-950 pointer-events-none -z-20"></div>
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+      <div class="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16">
+          
+          <!-- Hero Text Narrative -->
+          <div class="flex-1 text-center lg:text-left">
+            
+            <!-- Eyebrow with Horizontal Accent Line (Signature MNTN Style) -->
+            <div class="inline-flex items-center gap-3 mb-6">
+              <span class="w-12 h-0.5 bg-emerald-400"></span>
+              <span class="text-xs sm:text-sm font-heading font-bold uppercase tracking-[0.2em] text-emerald-400">
+                Mahasiswa Sistem Informasi &bull; SIKOKI
+              </span>
+            </div>
+
+            <!-- Nama Lengkap -->
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-heading font-extrabold tracking-tight text-white mb-4 leading-[1.1]">
+              Raffi Ramadhan
+            </h1>
+
+            <!-- Peran Profesional -->
+            <p class="text-xl sm:text-2xl lg:text-3xl font-heading font-semibold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-300 to-cyan-400 mb-6">
+              Web Developer &amp; UI/UX Enthusiast
+            </p>
+
+            <!-- Deskripsi Singkat Maksimal 2 Kalimat (Sesuai PRD) -->
+            <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-10 font-normal">
+              Saya adalah mahasiswa Sistem Informasi yang tertarik pada pengembangan website dan perancangan antarmuka pengguna. Berkomitmen mengembangkan solusi digital fungsional serta terus mengasah kemampuan melalui pembelajaran dan komunitas koding.
+            </p>
+
+            <!-- CTA Actions (Editorial Button + Scroll indicator) -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-5">
+              <a 
+                href="#proyek" 
+                class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-emerald-400 text-slate-950 font-heading font-bold text-sm hover:bg-emerald-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 transition-all shadow-xl shadow-emerald-400/20 active:scale-95 group">
+                <span>Lihat Proyek</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+              </a>
+
+              <a 
+                href="#tentang" 
+                class="inline-flex items-center justify-center gap-2 text-sm font-heading font-semibold text-slate-300 hover:text-emerald-400 transition-colors py-3.5 px-3">
+                <span>Gulir ke Bawah</span>
+                <i data-lucide="arrow-down" class="w-4 h-4 text-emerald-400 animate-bounce"></i>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Hero Circular Profile Image -->
+          <div class="flex-shrink-0 relative">
+            <div class="relative w-60 h-60 sm:w-72 sm:h-72 lg:w-80 lg:h-80">
+              
+              <!-- Subtle Glowing Aura -->
+              <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-emerald-400/30 to-cyan-400/20 blur-xl scale-110"></div>
+              
+              <!-- Circular Profile Frame Sesuai PRD FR-03 -->
+              <div class="relative w-full h-full rounded-full border-4 border-slate-800 bg-slate-900 shadow-2xl overflow-hidden ring-4 ring-emerald-400/20">
+                <img 
+                  src="assets/images/profile.jpg" 
+                  alt="Foto Profil Raffi Ramadhan" 
+                  class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                  onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%25\' height=\'100%25\' viewBox=\'0 0 100 100\'><rect fill=\'%230b1329\' width=\'100\' height=\'100\'/><circle cx=\'50\' cy=\'50\' r=\'46\' fill=\'none\' stroke=\'%2334d399\' stroke-width=\'2\'/><text fill=\'%2334d399\' x=\'50\' y=\'55\' font-family=\'sans-serif\' font-size=\'22\' font-weight=\'bold\' text-anchor=\'middle\' dominant-baseline=\'middle\'>RR</text></svg>';"
+                />
+              </div>
+
+              <!-- Community Badge Overlay -->
+              <div class="absolute -bottom-2 -left-2 bg-slate-900/95 border border-slate-800 rounded-2xl px-4 py-2 text-xs font-semibold text-slate-200 flex items-center gap-2 shadow-xl backdrop-blur-md">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                <span>Komunitas SIKOKI</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 01: TENTANG SAYA (ABOUT) ==================== -->
+    <section id="tentang" class="py-24 sm:py-32 bg-slate-950 border-t border-slate-900 relative scroll-mt-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Narrative Left Column -->
+          <div class="lg:col-span-7 relative">
+            
+            <!-- Giant Translucent Watermark Number (MNTN Signature) -->
+            <div class="absolute -top-16 -left-6 sm:-top-20 sm:-left-10 text-8xl sm:text-9xl font-heading font-black text-slate-800/40 select-none pointer-events-none -z-10 tracking-tighter">
+              01
+            </div>
+
+            <!-- Eyebrow with Dash -->
+            <div class="inline-flex items-center gap-3 mb-4">
+              <span class="w-10 h-0.5 bg-emerald-400"></span>
+              <span class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-emerald-400">
+                Tentang Saya &bull; Profil Pribadi
+              </span>
+            </div>
+
+            <!-- Section Title -->
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white tracking-tight mb-6 leading-tight">
+              Mahasiswa Sistem Informasi &amp; Pegiat Komunitas Koding
+            </h2>
+
+            <!-- Narrative Paragraphs -->
+            <div class="space-y-5 text-slate-300 leading-relaxed text-base sm:text-lg">
+              <p>
+                Halo! Saya <strong class="text-white font-semibold">Raffi Ramadhan</strong>, mahasiswa Program Studi <span class="text-emerald-400 font-medium">Sistem Informasi Semester 3</span> di <span class="text-white font-medium">Universitas Nusantara PGRI Kediri</span>.
+              </p>
+              <p>
+                Perjalanan saya di dunia teknologi didorong oleh rasa ingin tahu yang mendalam pada <span class="text-cyan-300 font-medium">pengembangan website</span> dan <span class="text-cyan-300 font-medium">perancangan UI/UX</span>. Saya meyakini bahwa antarmuka terbaik adalah perpaduan harmonis antara logika kode yang tangguh dan estetika visual yang memudahkan setiap pengguna.
+              </p>
+              <p>
+                Melalui keikutsertaan aktif di <span class="text-emerald-400 font-medium">SIKOKI (komunitas koding)</span>, saya secara konsisten mengasah kemampuan teknis, berkolaborasi dengan sesama pembelajar, dan membangun fondasi yang kokoh untuk persiapan karier profesional di bidang web development.
+              </p>
+            </div>
+
+            <!-- Action Link -->
+            <div class="mt-8">
+              <a href="#keahlian" class="inline-flex items-center gap-2 text-sm font-heading font-semibold text-emerald-400 hover:text-emerald-300 transition-colors group">
+                <span>Lihat Kompetensi &amp; Tech Stack</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform"></i>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Feature Cards Right Column -->
+          <div class="lg:col-span-5 space-y-4">
+            
+            <!-- Card 1: Pendidikan -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all shadow-lg hover:shadow-emerald-400/5">
+              <div class="flex items-start gap-4">
+                <div class="p-3 rounded-xl bg-emerald-400/10 text-emerald-400 border border-emerald-400/20">
+                  <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="font-heading font-bold text-white text-base">Pendidikan Formal</h3>
+                  <p class="text-xs text-emerald-400 font-medium mt-1">S1 Sistem Informasi (Semester 3)</p>
+                  <p class="text-sm text-slate-300 mt-1">Universitas Nusantara PGRI Kediri</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Komunitas -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all shadow-lg hover:shadow-cyan-400/5">
+              <div class="flex items-start gap-4">
+                <div class="p-3 rounded-xl bg-cyan-400/10 text-cyan-400 border border-cyan-400/20">
+                  <i data-lucide="users" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="font-heading font-bold text-white text-base">Komunitas Koding</h3>
+                  <p class="text-xs text-cyan-400 font-medium mt-1">Anggota Aktif</p>
+                  <p class="text-sm text-slate-300 mt-1">SIKOKI (Sistem Informasi Komunitas Koding)</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Minat Profesional -->
+            <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all shadow-lg">
+              <div class="flex items-start gap-4">
+                <div class="p-3 rounded-xl bg-emerald-400/10 text-emerald-400 border border-emerald-400/20">
+                  <i data-lucide="sparkles" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="font-heading font-bold text-white text-base">Fokus Profesional</h3>
+                  <p class="text-xs text-emerald-400 font-medium mt-1">Front-End Development &amp; UI/UX</p>
+                  <p class="text-sm text-slate-300 mt-1">Desain responsif, kode semantik, dan perancangan antarmuka pengguna modern.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 02: KEAHLIAN (TECH STACK) ==================== -->
+    <section id="keahlian" class="py-24 sm:py-32 bg-slate-950 border-t border-slate-900 relative scroll-mt-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          <!-- Alternating Layout: Visual Grid on Left (Col 1-7) -->
+          <div class="lg:col-span-7 order-2 lg:order-1">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              
+              <!-- Skill: HTML5 -->
+              <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 hover:bg-slate-900/90 transition-all group">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="w-10 h-10 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
+                    <i data-lucide="file-code" class="w-5 h-5"></i>
+                  </div>
+                  <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-400/10 text-emerald-400 border border-emerald-400/20">
+                    Fondasi
+                  </span>
+                </div>
+                <h3 class="font-heading font-bold text-base text-white group-hover:text-emerald-400 transition-colors">
+                  HTML5 Semantik
+                </h3>
+                <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                  Struktur dokumen yang rapi, semantik, ramah SEO, dan berorientasi aksesibilitas standar.
+                </p>
+              </div>
+
+              <!-- Skill: CSS3 & Tailwind -->
+              <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 hover:bg-slate-900/90 transition-all group">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="w-10 h-10 rounded-xl bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition-transform">
+                    <i data-lucide="palette" class="w-5 h-5"></i>
+                  </div>
+                  <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-cyan-400/10 text-cyan-400 border border-cyan-400/20">
+                    Styling
+                  </span>
+                </div>
+                <h3 class="font-heading font-bold text-base text-white group-hover:text-cyan-400 transition-colors">
+                  CSS3 &amp; Tailwind CSS
+                </h3>
+                <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                  Utility-first workflow, layout Flexbox &amp; CSS Grid, palet warna elegan tema gelap modern.
+                </p>
+              </div>
+
+              <!-- Skill: Vanilla JavaScript -->
+              <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 hover:bg-slate-900/90 transition-all group">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="w-10 h-10 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
+                    <i data-lucide="braces" class="w-5 h-5"></i>
+                  </div>
+                  <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-400/10 text-emerald-400 border border-emerald-400/20">
+                    Interaksi
+                  </span>
+                </div>
+                <h3 class="font-heading font-bold text-base text-white group-hover:text-emerald-400 transition-colors">
+                  Vanilla JavaScript
+                </h3>
+                <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                  Manipulasi DOM murni, event handler dinamis, navigasi responsif, dan interaksi tanpa bloatware.
+                </p>
+              </div>
+
+              <!-- Skill: UI/UX Figma -->
+              <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 hover:bg-slate-900/90 transition-all group">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="w-10 h-10 rounded-xl bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition-transform">
+                    <i data-lucide="layout" class="w-5 h-5"></i>
+                  </div>
+                  <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-cyan-400/10 text-cyan-400 border border-cyan-400/20">
+                    Desain
+                  </span>
+                </div>
+                <h3 class="font-heading font-bold text-base text-white group-hover:text-cyan-400 transition-colors">
+                  UI/UX &amp; Figma
+                </h3>
+                <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                  Wireframing, perancangan antarmuka, konsistensi hierarki visual, dan pembuatan prototipe interaktif.
+                </p>
+              </div>
+
+              <!-- Skill: Git & GitHub Pages -->
+              <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 hover:bg-slate-900/90 transition-all group">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="w-10 h-10 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
+                    <i data-lucide="git-branch" class="w-5 h-5"></i>
+                  </div>
+                  <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-400/10 text-emerald-400 border border-emerald-400/20">
+                    Workflow
+                  </span>
+                </div>
+                <h3 class="font-heading font-bold text-base text-white group-hover:text-emerald-400 transition-colors">
+                  Git &amp; GitHub Pages
+                </h3>
+                <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                  Version control, manajemen branch, repositori kolaboratif, dan publishing website statis tanpa server.
+                </p>
+              </div>
+
+              <!-- Skill: Responsive Web Design -->
+              <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 hover:bg-slate-900/90 transition-all group">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="w-10 h-10 rounded-xl bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition-transform">
+                    <i data-lucide="smartphone" class="w-5 h-5"></i>
+                  </div>
+                  <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-cyan-400/10 text-cyan-400 border border-cyan-400/20">
+                    Adaptif
+                  </span>
+                </div>
+                <h3 class="font-heading font-bold text-base text-white group-hover:text-cyan-400 transition-colors">
+                  Responsive Design
+                </h3>
+                <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                  Tata letak adaptif yang nyaman digunakan pada layar ponsel, tablet, laptop, hingga monitor ultra-lebar.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Sedang Dipelajari (In Progress Context) -->
+            <div class="mt-4 p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
+              <div class="flex items-center gap-2 mb-3">
+                <i data-lucide="book-open" class="w-4 h-4 text-amber-400"></i>
+                <h4 class="font-heading font-semibold text-xs text-slate-200 uppercase tracking-wider">
+                  Sedang Dipelajari (Tahap Eksplorasi)
+                </h4>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800/80">
+                  <p class="text-xs font-semibold text-white">React.js</p>
+                  <p class="text-[11px] text-slate-400 mt-0.5">Komponen &amp; state</p>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800/80">
+                  <p class="text-xs font-semibold text-white">PHP &amp; MySQL</p>
+                  <p class="text-[11px] text-slate-400 mt-0.5">Backend &amp; database</p>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-950/70 border border-slate-800/80">
+                  <p class="text-xs font-semibold text-white">RESTful API</p>
+                  <p class="text-[11px] text-slate-400 mt-0.5">Integrasi data JSON</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Narrative Text on Right (Col 8-12) -->
+          <div class="lg:col-span-5 relative order-1 lg:order-2">
+            
+            <!-- Giant Translucent Watermark Number -->
+            <div class="absolute -top-16 -left-6 sm:-top-20 sm:-left-10 text-8xl sm:text-9xl font-heading font-black text-slate-800/40 select-none pointer-events-none -z-10 tracking-tighter">
+              02
+            </div>
+
+            <!-- Eyebrow with Dash -->
+            <div class="inline-flex items-center gap-3 mb-4">
+              <span class="w-10 h-0.5 bg-cyan-400"></span>
+              <span class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-cyan-400">
+                Keahlian &bull; Tech Stack
+              </span>
+            </div>
+
+            <!-- Section Title -->
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white tracking-tight mb-6 leading-tight">
+              Fondasi Kode Semantik &amp; Estetika Antarmuka
+            </h2>
+
+            <p class="text-slate-300 leading-relaxed text-base sm:text-lg mb-6">
+              Setiap keahlian yang tercantum mencerminkan kompetensi teknis yang secara nyata dipelajari dan diimplementasikan. Pendekatan saya berpusat pada penulisan kode yang bersih, efisien, dan mudah dipelihara.
+            </p>
+
+            <p class="text-slate-400 leading-relaxed text-sm sm:text-base mb-8">
+              Melalui kombinasi HTML5 semantik, kecepatan utility Tailwind CSS, kelincahan Vanilla JavaScript, serta riset UX melalui Figma, saya terus memperluas kapasitas sebagai developer web modern yang adaptif.
+            </p>
+
+            <div class="flex items-center gap-4 text-xs font-heading font-semibold text-slate-400">
+              <span class="flex items-center gap-1.5 text-emerald-400">
+                <i data-lucide="check-circle" class="w-4 h-4"></i>
+                Kompetensi Teruji
+              </span>
+              <span class="flex items-center gap-1.5 text-cyan-400">
+                <i data-lucide="code-2" class="w-4 h-4"></i>
+                Clean Code
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 03: PROYEK (SHOWCASE TAHAP 2) ==================== -->
+    <section id="proyek" class="py-24 sm:py-32 bg-slate-950 border-t border-slate-900 relative scroll-mt-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Narrative Left Column -->
+          <div class="lg:col-span-7 relative">
+            
+            <!-- Giant Translucent Watermark Number -->
+            <div class="absolute -top-16 -left-6 sm:-top-20 sm:-left-10 text-8xl sm:text-9xl font-heading font-black text-slate-800/40 select-none pointer-events-none -z-10 tracking-tighter">
+              03
+            </div>
+
+            <!-- Eyebrow with Dash -->
+            <div class="inline-flex items-center gap-3 mb-4">
+              <span class="w-10 h-0.5 bg-emerald-400"></span>
+              <span class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-emerald-400">
+                Tahap 2 &bull; Karya &amp; Portofolio
+              </span>
+            </div>
+
+            <!-- Section Title -->
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white tracking-tight mb-6 leading-tight">
+              Kurasi Proyek &amp; Eksplorasi Digital
+            </h2>
+
+            <p class="text-slate-300 leading-relaxed text-base sm:text-lg mb-6">
+              Bagian ini disiapkan secara khusus untuk mendokumentasikan karya-karya terpilih yang dihasilkan dari penugasan akademik Sistem Informasi UNP Kediri serta proyek kolaboratif di komunitas koding SIKOKI.
+            </p>
+
+            <p class="text-slate-400 leading-relaxed text-sm sm:text-base mb-8">
+              Setiap proyek nantinya akan dilengkapi dengan ringkasan masalah, peran pengerjaan, teknologi yang digunakan, serta tautan repositori GitHub dan demo langsung.
+            </p>
+
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900 border border-slate-800 text-xs font-medium text-emerald-400">
+              <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+              <span>Sedang Dikurasi &bull; Dijadwalkan Rilis pada Tahap 2</span>
+            </div>
+
+          </div>
+
+          <!-- Feature Showcase Card Right Column -->
+          <div class="lg:col-span-5">
+            <div class="p-8 sm:p-10 rounded-3xl bg-slate-900 border border-slate-800 text-center relative overflow-hidden group hover:border-slate-700 transition-all shadow-2xl">
+              <div class="w-16 h-16 rounded-2xl bg-emerald-400/10 border border-emerald-400/20 text-emerald-400 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <i data-lucide="layers" class="w-8 h-8"></i>
+              </div>
+              <h3 class="font-heading font-bold text-xl text-white mb-3">
+                Karya SIKOKI &amp; Studi Kasus UI/UX
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+                Mencakup purwarupa antarmuka web, website organisasi, serta modul aplikasi interaktif yang sedang dirancang bersama komunitas.
+              </p>
+              <div class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-cyan-400">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                <span>Segera Dipublikasikan</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 04: KONTAK (SHOWCASE TAHAP 3) ==================== -->
+    <section id="kontak" class="py-24 sm:py-32 bg-slate-950 border-t border-slate-900 relative scroll-mt-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Card Left Column (Col 1-5) -->
+          <div class="lg:col-span-5 order-2 lg:order-1">
+            <div class="p-8 sm:p-10 rounded-3xl bg-slate-900 border border-slate-800 text-center relative overflow-hidden group hover:border-slate-700 transition-all shadow-2xl">
+              <div class="w-16 h-16 rounded-2xl bg-cyan-400/10 border border-cyan-400/20 text-cyan-400 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <i data-lucide="message-square" class="w-8 h-8"></i>
+              </div>
+              <h3 class="font-heading font-bold text-xl text-white mb-3">
+                Terhubung Lewat Komunitas
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6">
+                Untuk pertanyaan, kolaborasi antarmahasiswa, atau diskusi proyek, koordinasi awal dapat dilakukan melalui forum komunitas koding SIKOKI.
+              </p>
+              <div class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-400">
+                <i data-lucide="users" class="w-4 h-4"></i>
+                <span>SIKOKI Koding Network</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Narrative Right Column (Col 6-12) -->
+          <div class="lg:col-span-7 relative order-1 lg:order-2">
+            
+            <!-- Giant Translucent Watermark Number -->
+            <div class="absolute -top-16 -left-6 sm:-top-20 sm:-left-10 text-8xl sm:text-9xl font-heading font-black text-slate-800/40 select-none pointer-events-none -z-10 tracking-tighter">
+              04
+            </div>
+
+            <!-- Eyebrow with Dash -->
+            <div class="inline-flex items-center gap-3 mb-4">
+              <span class="w-10 h-0.5 bg-cyan-400"></span>
+              <span class="text-xs font-heading font-bold uppercase tracking-[0.2em] text-cyan-400">
+                Tahap 3 &bull; Komunikasi
+              </span>
+            </div>
+
+            <!-- Section Title -->
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white tracking-tight mb-6 leading-tight">
+              Mari Berdiskusi &amp; Jalin Kolaborasi
+            </h2>
+
+            <p class="text-slate-300 leading-relaxed text-base sm:text-lg mb-6">
+              Saya selalu terbuka untuk berdiskusi seputar eksplorasi web modern, kerja sama proyek komunitas, serta peluang magang industri di bidang pengembangan web dan perancangan UI/UX.
+            </p>
+
+            <p class="text-slate-400 leading-relaxed text-sm sm:text-base mb-8">
+              Integrasi formulir interaktif dan profil profesional (LinkedIn &amp; GitHub) akan difinalisasi pada Tahap 3 sesuai roadmap pengembangan produk.
+            </p>
+
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900 border border-slate-800 text-xs font-medium text-cyan-400">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              <span>Fitur Komunikasi Lengkap &bull; Hadir di Tahap 3</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-slate-950 border-t border-slate-900 py-12 text-slate-400 text-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-900 text-center md:text-left">
+        <div>
+          <p class="font-heading font-bold text-lg text-white tracking-wider uppercase">
+            Raffi Ramadhan
+          </p>
+          <p class="text-xs text-slate-400 mt-1">
+            Web Developer &amp; UI/UX Enthusiast &bull; Sistem Informasi UNP Kediri &bull; SIKOKI
+          </p>
+        </div>
+        <div class="flex items-center gap-6 text-xs font-heading font-medium">
+          <a href="#hero" class="hover:text-emerald-400 transition-colors">Start</a>
+          <a href="#tentang" class="hover:text-emerald-400 transition-colors">Tentang</a>
+          <a href="#keahlian" class="hover:text-emerald-400 transition-colors">Keahlian</a>
+          <a href="#proyek" class="hover:text-emerald-400 transition-colors">Proyek</a>
+          <a href="#kontak" class="hover:text-emerald-400 transition-colors">Kontak</a>
+        </div>
+      </div>
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center sm:text-left">
+        <p>&copy; 2026 Raffi Ramadhan. Seluruh hak cipta dilindungi.</p>
+        <p>Dibangun dengan HTML5 Semantik, Tailwind CSS, &amp; Vanilla JavaScript. Siap untuk GitHub Pages.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
